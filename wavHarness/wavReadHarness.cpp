@@ -2,7 +2,7 @@
 #include "juce_audio_formats/juce_audio_formats.h"
 #include "juce_core/juce_core.h"
 
-extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) 
+int readWAV(const uint8_t* data, size_t size) 
 {   
     try {
         // Create a non-owning view of the data
@@ -42,9 +42,9 @@ int main(int argc, char* argv[])
     
     if (inputFile.loadFileAsData(fileData))
     {
-        return LLVMFuzzerTestOneInput(
-            static_cast<const uint8_t*>(fileData.getData()),
-            fileData.getSize());
+        while(__AFL_LOOP(2)){
+            readWAV(static_cast<const uint8_t*>(fileData.getData()), fileData.getSize());
+        }
     }
     
     return 1;
