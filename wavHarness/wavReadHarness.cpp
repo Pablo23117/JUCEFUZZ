@@ -2,50 +2,43 @@
 #include "juce_audio_formats/juce_audio_formats.h"
 #include "juce_core/juce_core.h"
 
+// Persistent mode setup
+#ifdef __AFL_COMPILER
+  __AFL_FUZZ_INIT();
+#endif
+
 int readWAV(const uint8_t* data, size_t size) 
-{   
+{
     try {
-        // Create a non-owning view of the data
-        juce::MemoryInputStream* mis = new juce::MemoryInputStream(data, size, false);
-        
-        // Create format manager
+        auto mis = std::make_unique<juce::MemoryInputStream>(data, size, false);
         juce::AudioFormatManager formatManager;
         formatManager.registerBasicFormats();
         
-        // Create reader - transfer ownership of the stream
         std::unique_ptr<juce::AudioFormatReader> reader(
-            formatManager.createReaderFor(std::unique_ptr<juce::MemoryInputStream>(mis)));
+            formatManager.createReaderFor(std::move(mis)));
         
-        if (reader) 
-        {
-            // Create buffer and read samples
+        if (reader) {
             juce::AudioBuffer<float> buffer(reader->numChannels, 
                                           (int)reader->lengthInSamples);
             reader->read(&buffer, 0, (int)reader->lengthInSamples, 0, true, true);
         }
     }
-    catch (...) 
-    {
-        // Ignore all exceptions
+    catch (...) {
+        return -1; // Error code for failures
     }
     
     return 0;
 }
 
-// Optional test main function
 int main(int argc, char* argv[])
-{
-    if (argc < 2) return 1;
+{   
+    // AFL++ persistent mode
+    __AFL_INIT();
+    unsigned char *buf = __AFL_FUZZ_TESTCASE_BUF;
     
-    juce::File inputFile(argv[1]);
-    juce::MemoryBlock fileData;
-    
-    if (inputFile.loadFileAsData(fileData))
-    {
-        while(__AFL_LOOP(2)){
-            readWAV(static_cast<const uint8_t*>(fileData.getData()), fileData.getSize());
-        }
+    while (__AFL_LOOP(100)) {
+        int len = __AFL_FUZZ_TESTCASE_LEN;
+        readWAV(buf, len);
     }
-    
-    return 1;
+    return 0;
 }
