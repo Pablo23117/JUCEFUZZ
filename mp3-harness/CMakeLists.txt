@@ -16,14 +16,14 @@ cmake_minimum_required(VERSION 3.22)
 # `project()` command. `project()` sets up some helpful variables that describe source/binary
 # directories, and the current project version. This is a standard CMake command.
 
-project(JUCE_HARNESS VERSION 0.0.1)
+project(JUCE_MP3_HARNESS VERSION 0.0.1)
 
 # If you've installed JUCE somehow (via a package manager, or directly using the CMake install
 # target), you'll need to tell this project that it depends on the installed copy of JUCE. If you've
 # included JUCE directly in your source tree (perhaps as a submodule), you'll need to tell CMake to
 # include that subdirectory as part of the build.
 
-find_package(JUCE CONFIG REQUIRED)        # If you've installed JUCE to your system
+find_package(JUCE CONFIG REQUIRED)  
 # or
 # add_subdirectory(JUCE)                    # If you've put JUCE in a subdirectory called JUCE
 
@@ -32,7 +32,7 @@ find_package(JUCE CONFIG REQUIRED)        # If you've installed JUCE to your sys
 # set up by default. This function accepts many optional arguments. Check the readme at
 # `docs/CMake API.md` in the JUCE repo for the full list.
 
-juce_add_console_app(JuceHarness
+juce_add_console_app(JuceMP3Harness
     PRODUCT_NAME "Console App Example")     # The name of the final executable, which can differ from the target name
 
 # `juce_generate_juce_header` will create a JuceHeader.h for a given target, which will be generated
@@ -48,9 +48,9 @@ juce_add_console_app(JuceHarness
 # Finally, we supply a list of source files that will be built into the target. This is a standard
 # CMake command.
 
-target_sources(JuceHarness
+target_sources(JuceMP3Harness
     PRIVATE
-        juce_harness.cpp)
+        mp3_reader.cpp)
 
 # `target_compile_definitions` adds some preprocessor definitions to our target. In a Projucer
 # project, these might be passed in the 'Preprocessor Definitions' field. JUCE modules also make use
@@ -59,11 +59,13 @@ target_sources(JuceHarness
 # definitions will be visible both to your code, and also the JUCE module code, so for new
 # definitions, pick unique names that are unlikely to collide! This is a standard CMake command.
 
-target_compile_definitions(JuceHarness
+target_compile_definitions(JuceMP3Harness
     PRIVATE
         # JUCE_WEB_BROWSER and JUCE_USE_CURL would be on by default, but you might not need them.
         JUCE_WEB_BROWSER=0  # If you remove this, add `NEEDS_WEB_BROWSER TRUE` to the `juce_add_console_app` call
-        JUCE_USE_CURL=0)    # If you remove this, add `NEEDS_CURL TRUE` to the `juce_add_console_app` call
+        JUCE_USE_CURL=0
+        JUCE_USE_MP3AUDIOFORMAT=1
+        JUCE_USE_FLAC=0)    # If you remove this, add `NEEDS_CURL TRUE` to the `juce_add_console_app` call
 
 # If the target needs extra binary assets, they can be added here. The first argument is the name of
 # a new static library target that will include all the binary resources. There is an optional
@@ -79,10 +81,13 @@ target_compile_definitions(JuceHarness
 # resolved automatically. If you'd generated a binary data target above, you would need to link to
 # it here too. This is a standard CMake command.
 
-target_link_libraries(JuceHarness
+target_link_libraries(JuceMP3Harness
     PRIVATE
         # ConsoleAppData            # If you'd created a binary data target, you'd link to it here
         juce::juce_core
+        juce::juce_audio_basics
+        juce::juce_audio_formats
+        mp3lame
     PUBLIC
         juce::juce_recommended_config_flags
         juce::juce_recommended_warning_flags)

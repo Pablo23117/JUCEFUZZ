@@ -1,3 +1,6 @@
 cmake-build/
-out/
-in/
+juce/
+mp3-harness/out/
+test-harness/
+mp3-harness/cmake-build/
+build/
