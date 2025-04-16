@@ -11,7 +11,7 @@ export CXX=afl-clang-lto++
 echo "=== Building JUCE without ASAN ==="
 sudo rm -rf $HOME/Desktop/JUCEFUZZ/juce/cmake-build-install
 cmake -B cmake-build-install -DCMAKE_INSTALL_PREFIX=$HOME/Desktop/JUCEFUZZ/juce/install
-cmake --build cmake-build-install --target install -j $(nproc)
+cmake --build cmake-build-install --target install
 echo "=== JUCE built without ASAN ==="
 
 # Go to harness directory
@@ -24,7 +24,7 @@ export CXX=afl-clang-lto++
 echo "=== Building MP3 harness without ASAN ==="
 sudo rm -rf $HOME/Desktop/JUCEFUZZ/mp3-harness/cmake-build
 cmake -B cmake-build -DCMAKE_PREFIX_PATH=$HOME/Desktop/JUCEFUZZ/juce/install
-cmake --build cmake-build -j $(nproc)
+cmake --build cmake-build
 echo "=== MP3 harness built without ASAN ==="
 
 echo "== Starting fuzzing session ==="

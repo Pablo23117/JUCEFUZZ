@@ -1,0 +1,580 @@
+14 warnings generated.
+Note: Found constructor function _GLOBAL__sub_I_mp3_reader.cpp with prio 65535, we will not instrument this, putting it into a block list.
+Note: Found constructor function asan.module_ctor with prio 1, we will not instrument this, putting it into a block list.
+Note: Found constructor function _GLOBAL__sub_I_juce_core.cpp with prio 65535, we will not instrument this, putting it into a block list.
+Note: Found constructor function asan.module_ctor.52 with prio 1, we will not instrument this, putting it into a block list.
+Note: Found constructor function asan.module_ctor.90 with prio 1, we will not instrument this, putting it into a block list.
+Note: Found constructor function _GLOBAL__sub_I_juce_audio_basics.cpp with prio 65535, we will not instrument this, putting it into a block list.
+Note: Found constructor function asan.module_ctor.2311 with prio 1, we will not instrument this, putting it into a block list.
+Note: Found constructor function _GLOBAL__sub_I_juce_audio_formats.cpp with prio 65535, we will not instrument this, putting it into a block list.
+Note: Found constructor function asan.module_ctor.5565 with prio 1, we will not instrument this, putting it into a block list.
+memcmp: length 4/4 "OggS"
+memcmp: length 6/6 "vorbis"
+memcmp: length 6/6 "vorbis"
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846309==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846309==The signal is caused by a WRITE memory access.
+==2846309==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846309==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846349==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846349==The signal is caused by a WRITE memory access.
+==2846349==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846349==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846352==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846352==The signal is caused by a WRITE memory access.
+==2846352==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846352==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846355==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846355==The signal is caused by a WRITE memory access.
+==2846355==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846355==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846358==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846358==The signal is caused by a WRITE memory access.
+==2846358==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846358==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846361==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846361==The signal is caused by a WRITE memory access.
+==2846361==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846361==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846364==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846364==The signal is caused by a WRITE memory access.
+==2846364==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846364==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846367==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846367==The signal is caused by a WRITE memory access.
+==2846367==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846367==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846370==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846370==The signal is caused by a WRITE memory access.
+==2846370==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846370==ABORTING
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846387==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846387==The signal is caused by a WRITE memory access.
+==2846387==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846387==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846399==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846399==The signal is caused by a WRITE memory access.
+==2846399==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846399==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846402==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846402==The signal is caused by a WRITE memory access.
+==2846402==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846402==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846405==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846405==The signal is caused by a WRITE memory access.
+==2846405==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846405==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846408==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846408==The signal is caused by a WRITE memory access.
+==2846408==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846408==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846414==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846414==The signal is caused by a WRITE memory access.
+==2846414==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846414==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846417==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846417==The signal is caused by a WRITE memory access.
+==2846417==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846417==ABORTING
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846422==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846422==The signal is caused by a WRITE memory access.
+==2846422==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846422==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846425==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846425==The signal is caused by a WRITE memory access.
+==2846425==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846425==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846428==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846428==The signal is caused by a WRITE memory access.
+==2846428==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846428==ABORTING
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846435==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846435==The signal is caused by a WRITE memory access.
+==2846435==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846435==ABORTING
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846440==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846440==The signal is caused by a WRITE memory access.
+==2846440==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846440==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846443==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846443==The signal is caused by a WRITE memory access.
+==2846443==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846443==ABORTING
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846450==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846450==The signal is caused by a WRITE memory access.
+==2846450==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846450==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846453==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846453==The signal is caused by a WRITE memory access.
+==2846453==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846453==ABORTING
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846456==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846456==The signal is caused by a WRITE memory access.
+==2846456==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846456==ABORTING
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:330
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2846461==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7ffff7988d07 bp 0x7fffffffd230 sp 0x7fffffffc9e8 T0)
+==2846461==The signal is caused by a WRITE memory access.
+==2846461==Hint: address points to the zero page.
+    #0 0x7ffff7988d07 in __memcpy_avx_unaligned_erms string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660
+    #1 0x555555841ec6 in __asan_memcpy (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x2edec6) (BuildId: 1b3e8edfe3ab72be)
+    #2 0x555555bd9832 in juce::MP3Decoder::MP3Reader::readSamples(int* const*, int, int, long long, int) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/codecs/juce_MP3AudioFormat.cpp:3046:13
+    #3 0x555555ac0bf0 in juce::AudioFormatReader::read(int* const*, int, long long, int, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:98:11
+    #4 0x555555c1e325 in juce::AudioFormatReader::read(juce::AudioBuffer<float>*, int, int, long long, bool, bool) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/include/JUCE-8.0.7/modules/juce_audio_formats/format/juce_AudioFormatReader.cpp:188:15
+    #5 0x555555889c89 in readMP3(unsigned char const*, unsigned long) /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:24:21
+    #6 0x55555588ed3f in main /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/mp3_reader.cpp:48:9
+    #7 0x7ffff782a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #8 0x7ffff782a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #9 0x5555557a9444 in _start (/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/JuceMP3Harness_artefacts/Debug/JuceMP3Harness+0x255444) (BuildId: 1b3e8edfe3ab72be)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:660 in __memcpy_avx_unaligned_erms
+==2846461==ABORTING
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
+JUCE v8.0.7
