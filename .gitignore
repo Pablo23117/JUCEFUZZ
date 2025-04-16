@@ -1,6 +1,7 @@
-cmake-build/
 juce/
 mp3-harness/out/
 test-harness/
 mp3-harness/cmake-build/
 build/
+asan-test
+asan-test.cpp

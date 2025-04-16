@@ -1,6 +1,7 @@
 #include "juce_audio_basics/juce_audio_basics.h"
 #include "juce_audio_formats/juce_audio_formats.h"
 #include "juce_core/juce_core.h"
+#include <cstdlib>
 
 // Persistent mode setup
 #ifdef __AFL_COMPILER
@@ -39,10 +40,19 @@ int main(int argc, char* argv[])
     #endif
 
     unsigned char *buf = __AFL_FUZZ_TESTCASE_BUF;
-    
-    while (__AFL_LOOP(5000)) {
+
+    const char* asan_enabled = std::getenv("AFL_USE_ASAN");
+    if (asan_enabled && std::string(asan_enabled) == "1") 
+    {
         int len = __AFL_FUZZ_TESTCASE_LEN;
         readMP3(buf, len);
+    } else 
+    {
+        while (__AFL_LOOP(5000)) 
+        {
+            int len = __AFL_FUZZ_TESTCASE_LEN;
+            readMP3(buf, len);
+        }
     }
     return 0;
 }
