@@ -2,3 +2,11 @@ cmake-build/
 out/
 in/
 out2/
+
+strHarness/JUCE/
+strHarness/build/
+strHarness/build-asan/
+
+wavHarness/JUCE/
+wavHarness/build/
+wavHarness/build-asan/
