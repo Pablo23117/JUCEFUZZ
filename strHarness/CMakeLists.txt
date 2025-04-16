@@ -23,9 +23,9 @@ project(JUCE_HARNESS VERSION 0.0.1)
 # included JUCE directly in your source tree (perhaps as a submodule), you'll need to tell CMake to
 # include that subdirectory as part of the build.
 
-find_package(JUCE CONFIG REQUIRED)        # If you've installed JUCE to your system
+# find_package(JUCE CONFIG REQUIRED)        # If you've installed JUCE to your system
 # or
-# add_subdirectory(JUCE)                    # If you've put JUCE in a subdirectory called JUCE
+add_subdirectory(JUCE)                    # If you've put JUCE in a subdirectory called JUCE
 
 # `juce_add_console_app` adds an executable target with the name passed as the first argument
 # (ConsoleAppExample here). This target is a normal CMake target, but has a lot of extra properties
@@ -50,7 +50,7 @@ juce_add_console_app(JuceHarness
 
 target_sources(JuceHarness
     PRIVATE
-        juce_harness.cpp)
+    strHarness.cpp)
 
 # `target_compile_definitions` adds some preprocessor definitions to our target. In a Projucer
 # project, these might be passed in the 'Preprocessor Definitions' field. JUCE modules also make use
@@ -62,7 +62,6 @@ target_sources(JuceHarness
 target_compile_definitions(JuceHarness
     PRIVATE
         # JUCE_WEB_BROWSER and JUCE_USE_CURL would be on by default, but you might not need them.
-        JUCE_USE_FLAC=0
         JUCE_WEB_BROWSER=0  # If you remove this, add `NEEDS_WEB_BROWSER TRUE` to the `juce_add_console_app` call
         JUCE_USE_CURL=0)    # If you remove this, add `NEEDS_CURL TRUE` to the `juce_add_console_app` call
 
@@ -84,8 +83,6 @@ target_link_libraries(JuceHarness
     PRIVATE
         # ConsoleAppData            # If you'd created a binary data target, you'd link to it here
         juce::juce_core
-        juce::juce_audio_basics
-        juce::juce_audio_formats
     PUBLIC
         juce::juce_recommended_config_flags
         juce::juce_recommended_warning_flags)
