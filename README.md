@@ -6,7 +6,7 @@ For our project, we decided to fuzz test the JUCE framework, mainly the _____ cl
 
 ## AFL++
 To use the same setup as us, we recommend fuzzing with AFL++
-[Click Here] to set up. (https://github.com/AFLplusplus/AFLplusplus.git)
+[Click Here] (https://github.com/AFLplusplus/AFLplusplus.git) to set up.
 
 ## Building our Project with AFL++
 
