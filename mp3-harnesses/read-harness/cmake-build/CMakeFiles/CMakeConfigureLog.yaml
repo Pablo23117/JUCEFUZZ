@@ -1,0 +1,625 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:19 (project)"
+    message: |
+      The system is: Linux - 6.11.0-21-generic - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:19 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/local/bin/afl-clang-lto 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/3.30.3/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:19 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/local/bin/afl-clang-lto++ 
+      Build flags: -fsanitize=address;-g;-fno-omit-frame-pointer
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/3.30.3/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:19 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD"
+      binary: "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ad7dc/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ad7dc.dir/build.make CMakeFiles/cmTC_ad7dc.dir/build
+        gmake[1]: Entering directory '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD'
+        Building C object CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o
+        /usr/local/bin/afl-clang-lto   -v -MD -MT CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.30/Modules/CMakeCCompilerABI.c
+        Ubuntu clang version 19.1.1 (1ubuntu1)
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /usr/lib/llvm-19/bin
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14
+        Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+         (in-process)
+         "/usr/lib/llvm-19/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-llvm-bc -flto=full -flto-unit -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -fhalf-no-semantic-interposition -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debug-info-kind=constructor -dwarf-version=5 -debugger-tuning=gdb -fdebug-compilation-dir=/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD -v -fcoverage-compilation-dir=/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD -resource-dir /usr/lib/llvm-19/lib/clang/19 -dependency-file CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o -sys-header-deps -U _FORTIFY_SOURCE -D __AFL_COMPILER=1 -D FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION=1 -D "__AFL_COVERAGE()=int __afl_selective_coverage = 1;void __afl_coverage_discard();void __afl_coverage_skip();void __afl_coverage_on();void __afl_coverage_off();" -D "__AFL_COVERAGE_START_OFF()=int __afl_selective_coverage_start_off = 1;" -D __AFL_COVERAGE_ON()=__afl_coverage_on() -D __AFL_COVERAGE_OFF()=__afl_coverage_off() -D __AFL_COVERAGE_DISCARD()=__afl_coverage_discard() -D __AFL_COVERAGE_SKIP()=__afl_coverage_skip() -D __AFL_HAVE_MANUAL_CONTROL=1 -D "__AFL_FUZZ_INIT()=int __afl_sharedmem_fuzzing = 1;extern __attribute__((visibility(\\"default\\"))) unsigned int *__afl_fuzz_len;extern __attribute__((visibility(\\"default\\"))) unsigned char *__afl_fuzz_ptr;unsigned char __afl_fuzz_alt[1048576];unsigned char *__afl_fuzz_alt_ptr = __afl_fuzz_alt;" -D "__AFL_FUZZ_TESTCASE_BUF=(__afl_fuzz_ptr ? __afl_fuzz_ptr : __afl_fuzz_alt_ptr)" -D "__AFL_FUZZ_TESTCASE_LEN=(__afl_fuzz_ptr ? *__afl_fuzz_len : (*__afl_fuzz_len = read(0, __afl_fuzz_alt_ptr, 1048576)) == 0xffffffff ? 0 : *__afl_fuzz_len)" -D "__AFL_LOOP(_A)=({ static volatile const char *_B __attribute__((used,unused));  _B = (const char*)\\"##SIG_AFL_PERSISTENT##\\"; extern __attribute__((visibility(\\"default\\"))) int __afl_connected;__attribute__((visibility(\\"default\\"))) int _L(unsigned int) __asm__(\\"__afl_persistent_loop\\"); _L(__afl_connected ? _A : 1); })" -D "__AFL_INIT()=do { static volatile const char *_A __attribute__((used,unused));  _A = (const char*)\\"##SIG_AFL_DEFER_FORKSRV##\\"; __attribute__((visibility(\\"default\\"))) void _I(void) __asm__(\\"__afl_manual_init\\"); _I(); } while (0)" -internal-isystem /usr/lib/llvm-19/lib/clang/19/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O3 -Wno-unused-command-line-argument -ferror-limit 19 -fsanitize=address -fsanitize-system-ignorelist=/usr/lib/llvm-19/lib/clang/19/share/asan_ignorelist.txt -fno-sanitize-memory-param-retval -fsanitize-address-use-after-scope -fsanitize-address-globals-dead-stripping -fno-assume-sane-operator-new -funroll-loops -fno-builtin-strcmp -fno-builtin-strncmp -fno-builtin-strcasecmp -fno-builtin-strncasecmp -fno-builtin-memcmp -fno-builtin-memmem -fno-builtin-bcmp -fno-builtin-strstr -fno-builtin-strcasestr -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -vectorize-loops -vectorize-slp -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.30/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 19.1.1 based upon LLVM 19.1.1 default target x86_64-pc-linux-gnu
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include"
+        ignoring nonexistent directory "/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/llvm-19/lib/clang/19/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        Linking C executable cmTC_ad7dc
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad7dc.dir/link.txt --verbose=1
+        /usr/local/bin/afl-clang-lto  -v -Wl,-v CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o -o cmTC_ad7dc
+        Ubuntu clang version 19.1.1 (1ubuntu1)
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /usr/lib/llvm-19/bin
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14
+        Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+         "/usr/lib/llvm-19/bin/ld.lld" -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ad7dc /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -plugin-opt=mcpu=x86-64 -plugin-opt=O3 --whole-archive /usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_static-x86_64.a --no-whole-archive --whole-archive /usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a --no-whole-archive --dynamic-list=/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a.syms --load-pass-plugin=/usr/local/bin/../lib/afl/SanitizerCoverageLTO.so --allow-multiple-definition -v CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o /usr/local/bin/../lib/afl/afl-compiler-rt.o /usr/local/bin/../lib/afl/afl-llvm-rt-lto.o --dynamic-list=/usr/local/bin/../lib/afl/dynamic_list.txt --no-as-needed -lpthread -lrt -lm -ldl -lresolv -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+        Ubuntu LLD 19.1.1 (compatible with GNU linkers)
+        gmake[1]: Leaving directory '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:19 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/llvm-19/lib/clang/19/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/llvm-19/lib/clang/19/include] ==> [/usr/lib/llvm-19/lib/clang/19/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/llvm-19/lib/clang/19/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:19 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ad7dc/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_ad7dc.dir/build.make CMakeFiles/cmTC_ad7dc.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD']
+        ignore line: [Building C object CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/local/bin/afl-clang-lto   -v -MD -MT CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.30/Modules/CMakeCCompilerABI.c]
+        ignore line: [Ubuntu clang version 19.1.1 (1ubuntu1)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /usr/lib/llvm-19/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14]
+        ignore line: [Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [ (in-process)]
+        ignore line: [ "/usr/lib/llvm-19/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-llvm-bc -flto=full -flto-unit -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -fhalf-no-semantic-interposition -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debug-info-kind=constructor -dwarf-version=5 -debugger-tuning=gdb -fdebug-compilation-dir=/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD -v -fcoverage-compilation-dir=/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-oZs6eD -resource-dir /usr/lib/llvm-19/lib/clang/19 -dependency-file CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o -sys-header-deps -U _FORTIFY_SOURCE -D __AFL_COMPILER=1 -D FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION=1 -D "__AFL_COVERAGE()=int __afl_selective_coverage = 1]
+        ignore line: [void __afl_coverage_discard()]
+        ignore line: [void __afl_coverage_skip()]
+        ignore line: [void __afl_coverage_on()]
+        ignore line: [void __afl_coverage_off()]
+        ignore line: [" -D "__AFL_COVERAGE_START_OFF()=int __afl_selective_coverage_start_off = 1]
+        ignore line: [" -D __AFL_COVERAGE_ON()=__afl_coverage_on() -D __AFL_COVERAGE_OFF()=__afl_coverage_off() -D __AFL_COVERAGE_DISCARD()=__afl_coverage_discard() -D __AFL_COVERAGE_SKIP()=__afl_coverage_skip() -D __AFL_HAVE_MANUAL_CONTROL=1 -D "__AFL_FUZZ_INIT()=int __afl_sharedmem_fuzzing = 1]
+        ignore line: [extern __attribute__((visibility(\\"default\\"))) unsigned int *__afl_fuzz_len]
+        ignore line: [extern __attribute__((visibility(\\"default\\"))) unsigned char *__afl_fuzz_ptr]
+        ignore line: [unsigned char __afl_fuzz_alt[1048576]]
+        ignore line: [unsigned char *__afl_fuzz_alt_ptr = __afl_fuzz_alt]
+        ignore line: [" -D "__AFL_FUZZ_TESTCASE_BUF=(__afl_fuzz_ptr ? __afl_fuzz_ptr : __afl_fuzz_alt_ptr)" -D "__AFL_FUZZ_TESTCASE_LEN=(__afl_fuzz_ptr ? *__afl_fuzz_len : (*__afl_fuzz_len = read(0  __afl_fuzz_alt_ptr  1048576)) == 0xffffffff ? 0 : *__afl_fuzz_len)" -D "__AFL_LOOP(_A)=({ static volatile const char *_B __attribute__((used unused))]
+        ignore line: [  _B = (const char*)\\"##SIG_AFL_PERSISTENT##\\"]
+        ignore line: [ extern __attribute__((visibility(\\"default\\"))) int __afl_connected]
+        ignore line: [__attribute__((visibility(\\"default\\"))) int _L(unsigned int) __asm__(\\"__afl_persistent_loop\\")]
+        ignore line: [ _L(__afl_connected ? _A : 1)]
+        ignore line: [ })" -D "__AFL_INIT()=do { static volatile const char *_A __attribute__((used unused))]
+        ignore line: [  _A = (const char*)\\"##SIG_AFL_DEFER_FORKSRV##\\"]
+        ignore line: [ __attribute__((visibility(\\"default\\"))) void _I(void) __asm__(\\"__afl_manual_init\\")]
+        ignore line: [ _I()]
+        ignore line: [ } while (0)" -internal-isystem /usr/lib/llvm-19/lib/clang/19/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O3 -Wno-unused-command-line-argument -ferror-limit 19 -fsanitize=address -fsanitize-system-ignorelist=/usr/lib/llvm-19/lib/clang/19/share/asan_ignorelist.txt -fno-sanitize-memory-param-retval -fsanitize-address-use-after-scope -fsanitize-address-globals-dead-stripping -fno-assume-sane-operator-new -funroll-loops -fno-builtin-strcmp -fno-builtin-strncmp -fno-builtin-strcasecmp -fno-builtin-strncasecmp -fno-builtin-memcmp -fno-builtin-memmem -fno-builtin-bcmp -fno-builtin-strstr -fno-builtin-strcasestr -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -vectorize-loops -vectorize-slp -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.30/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 19.1.1 based upon LLVM 19.1.1 default target x86_64-pc-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/llvm-19/lib/clang/19/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking C executable cmTC_ad7dc]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad7dc.dir/link.txt --verbose=1]
+        ignore line: [/usr/local/bin/afl-clang-lto  -v -Wl -v CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o -o cmTC_ad7dc]
+        ignore line: [Ubuntu clang version 19.1.1 (1ubuntu1)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /usr/lib/llvm-19/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14]
+        ignore line: [Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        link line: [ "/usr/lib/llvm-19/bin/ld.lld" -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ad7dc /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -plugin-opt=mcpu=x86-64 -plugin-opt=O3 --whole-archive /usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_static-x86_64.a --no-whole-archive --whole-archive /usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a --no-whole-archive --dynamic-list=/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a.syms --load-pass-plugin=/usr/local/bin/../lib/afl/SanitizerCoverageLTO.so --allow-multiple-definition -v CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o /usr/local/bin/../lib/afl/afl-compiler-rt.o /usr/local/bin/../lib/afl/afl-llvm-rt-lto.o --dynamic-list=/usr/local/bin/../lib/afl/dynamic_list.txt --no-as-needed -lpthread -lrt -lm -ldl -lresolv -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/llvm-19/bin/ld.lld] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_ad7dc] ==> ignore
+          arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
+          arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/14] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/14]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [-plugin-opt=mcpu=x86-64] ==> ignore
+          arg [-plugin-opt=O3] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_static-x86_64.a] ==> lib [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_static-x86_64.a]
+          arg [--no-whole-archive] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a] ==> lib [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a]
+          arg [--no-whole-archive] ==> ignore
+          arg [--dynamic-list=/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a.syms] ==> ignore
+          arg [--load-pass-plugin=/usr/local/bin/../lib/afl/SanitizerCoverageLTO.so] ==> ignore
+          arg [--allow-multiple-definition] ==> ignore
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_ad7dc.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [/usr/local/bin/../lib/afl/afl-compiler-rt.o] ==> obj [/usr/local/bin/../lib/afl/afl-compiler-rt.o]
+          arg [/usr/local/bin/../lib/afl/afl-llvm-rt-lto.o] ==> obj [/usr/local/bin/../lib/afl/afl-llvm-rt-lto.o]
+          arg [--dynamic-list=/usr/local/bin/../lib/afl/dynamic_list.txt] ==> ignore
+          arg [--no-as-needed] ==> ignore
+          arg [-lpthread] ==> lib [pthread]
+          arg [-lrt] ==> lib [rt]
+          arg [-lm] ==> lib [m]
+          arg [-ldl] ==> lib [dl]
+          arg [-lresolv] ==> lib [resolv]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--no-as-needed] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--no-as-needed] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o]
+          arg [/lib/x86_64-linux-gnu/crtn.o] ==> obj [/lib/x86_64-linux-gnu/crtn.o]
+        linker tool for 'C': /usr/lib/llvm-19/bin/ld.lld
+        remove lib [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_static-x86_64.a]
+        remove lib [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a]
+        collapse obj [/usr/local/bin/../lib/afl/afl-compiler-rt.o] ==> [/usr/local/lib/afl/afl-compiler-rt.o]
+        collapse obj [/usr/local/bin/../lib/afl/afl-llvm-rt-lto.o] ==> [/usr/local/lib/afl/afl-llvm-rt-lto.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/14] ==> [/usr/lib/gcc/x86_64-linux-gnu/14]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [pthread;rt;m;dl;resolv;gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/lib/x86_64-linux-gnu/Scrt1.o;/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o;/usr/local/lib/afl/afl-compiler-rt.o;/usr/local/lib/afl/afl-llvm-rt-lto.o;/usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o;/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/14;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/lib;/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:19 (project)"
+    message: |
+      Running the C compiler's linker: "/usr/lib/llvm-19/bin/ld.lld" "-v"
+      Ubuntu LLD 19.1.1 (compatible with GNU linkers)
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:19 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe"
+      binary: "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: "-fsanitize=address -g -fno-omit-frame-pointer"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6d95c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_6d95c.dir/build.make CMakeFiles/cmTC_6d95c.dir/build
+        gmake[1]: Entering directory '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe'
+        Building CXX object CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/local/bin/afl-clang-lto++   -fsanitize=address -g -fno-omit-frame-pointer    -v -MD -MT CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp
+        Ubuntu clang version 19.1.1 (1ubuntu1)
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /usr/lib/llvm-19/bin
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14
+        Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+         (in-process)
+         "/usr/lib/llvm-19/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-llvm-bc -flto=full -flto-unit -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -fhalf-no-semantic-interposition -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debug-info-kind=constructor -dwarf-version=5 -debugger-tuning=gdb -fdebug-compilation-dir=/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe -v -fcoverage-compilation-dir=/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe -resource-dir /usr/lib/llvm-19/lib/clang/19 -dependency-file CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -U _FORTIFY_SOURCE -D __AFL_COMPILER=1 -D FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION=1 -D "__AFL_COVERAGE()=int __afl_selective_coverage = 1;extern \\"C\\" void __afl_coverage_discard();extern \\"C\\" void __afl_coverage_skip();extern \\"C\\" void __afl_coverage_on();extern \\"C\\" void __afl_coverage_off();" -D "__AFL_COVERAGE_START_OFF()=int __afl_selective_coverage_start_off = 1;" -D __AFL_COVERAGE_ON()=__afl_coverage_on() -D __AFL_COVERAGE_OFF()=__afl_coverage_off() -D __AFL_COVERAGE_DISCARD()=__afl_coverage_discard() -D __AFL_COVERAGE_SKIP()=__afl_coverage_skip() -D __AFL_HAVE_MANUAL_CONTROL=1 -D "__AFL_FUZZ_INIT()=int __afl_sharedmem_fuzzing = 1;extern __attribute__((visibility(\\"default\\"))) unsigned int *__afl_fuzz_len;extern __attribute__((visibility(\\"default\\"))) unsigned char *__afl_fuzz_ptr;unsigned char __afl_fuzz_alt[1048576];unsigned char *__afl_fuzz_alt_ptr = __afl_fuzz_alt;" -D "__AFL_FUZZ_TESTCASE_BUF=(__afl_fuzz_ptr ? __afl_fuzz_ptr : __afl_fuzz_alt_ptr)" -D "__AFL_FUZZ_TESTCASE_LEN=(__afl_fuzz_ptr ? *__afl_fuzz_len : (*__afl_fuzz_len = read(0, __afl_fuzz_alt_ptr, 1048576)) == 0xffffffff ? 0 : *__afl_fuzz_len)" -D "__AFL_LOOP(_A)=({ static volatile const char *_B __attribute__((used,unused));  _B = (const char*)\\"##SIG_AFL_PERSISTENT##\\"; extern __attribute__((visibility(\\"default\\"))) int __afl_connected;__attribute__((visibility(\\"default\\"))) int _L(unsigned int) __asm__(\\"__afl_persistent_loop\\"); _L(__afl_connected ? _A : 1); })" -D "__AFL_INIT()=do { static volatile const char *_A __attribute__((used,unused));  _A = (const char*)\\"##SIG_AFL_DEFER_FORKSRV##\\"; __attribute__((visibility(\\"default\\"))) void _I(void) __asm__(\\"__afl_manual_init\\"); _I(); } while (0)" -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/backward -internal-isystem /usr/lib/llvm-19/lib/clang/19/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O3 -Wno-unused-command-line-argument -fdeprecated-macro -ferror-limit 19 -fsanitize=address -fsanitize-system-ignorelist=/usr/lib/llvm-19/lib/clang/19/share/asan_ignorelist.txt -fno-sanitize-memory-param-retval -fsanitize-address-use-after-scope -fsanitize-address-globals-dead-stripping -fno-assume-sane-operator-new -funroll-loops -fno-builtin-strcmp -fno-builtin-strncmp -fno-builtin-strcasecmp -fno-builtin-strncasecmp -fno-builtin-memcmp -fno-builtin-memmem -fno-builtin-bcmp -fno-builtin-strstr -fno-builtin-strcasestr -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 19.1.1 based upon LLVM 19.1.1 default target x86_64-pc-linux-gnu
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include"
+        ignoring nonexistent directory "/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14
+         /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14
+         /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/backward
+         /usr/lib/llvm-19/lib/clang/19/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        Linking CXX executable cmTC_6d95c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6d95c.dir/link.txt --verbose=1
+        /usr/local/bin/afl-clang-lto++ -fsanitize=address -g -fno-omit-frame-pointer   -v -Wl,-v CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_6d95c
+        Ubuntu clang version 19.1.1 (1ubuntu1)
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /usr/lib/llvm-19/bin
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14
+        Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+         "/usr/lib/llvm-19/bin/ld.lld" -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_6d95c /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -plugin-opt=mcpu=x86-64 -plugin-opt=O3 --whole-archive /usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_static-x86_64.a --no-whole-archive --whole-archive /usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a --no-whole-archive --dynamic-list=/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a.syms --whole-archive /usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_cxx-x86_64.a --no-whole-archive --dynamic-list=/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_cxx-x86_64.a.syms --load-pass-plugin=/usr/local/bin/../lib/afl/SanitizerCoverageLTO.so --allow-multiple-definition -v CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o /usr/local/bin/../lib/afl/afl-compiler-rt.o /usr/local/bin/../lib/afl/afl-llvm-rt-lto.o --dynamic-list=/usr/local/bin/../lib/afl/dynamic_list.txt -lstdc++ -lm --no-as-needed -lpthread -lrt -lm -ldl -lresolv -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+        Ubuntu LLD 19.1.1 (compatible with GNU linkers)
+        gmake[1]: Leaving directory '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:19 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/backward]
+          add: [/usr/lib/llvm-19/lib/clang/19/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14] ==> [/usr/include/c++/14]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14] ==> [/usr/include/x86_64-linux-gnu/c++/14]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/backward] ==> [/usr/include/c++/14/backward]
+        collapse include dir [/usr/lib/llvm-19/lib/clang/19/include] ==> [/usr/lib/llvm-19/lib/clang/19/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/14;/usr/include/x86_64-linux-gnu/c++/14;/usr/include/c++/14/backward;/usr/lib/llvm-19/lib/clang/19/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:19 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6d95c/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_6d95c.dir/build.make CMakeFiles/cmTC_6d95c.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe']
+        ignore line: [Building CXX object CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/local/bin/afl-clang-lto++   -fsanitize=address -g -fno-omit-frame-pointer    -v -MD -MT CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Ubuntu clang version 19.1.1 (1ubuntu1)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /usr/lib/llvm-19/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14]
+        ignore line: [Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [ (in-process)]
+        ignore line: [ "/usr/lib/llvm-19/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-llvm-bc -flto=full -flto-unit -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -fhalf-no-semantic-interposition -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debug-info-kind=constructor -dwarf-version=5 -debugger-tuning=gdb -fdebug-compilation-dir=/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe -v -fcoverage-compilation-dir=/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeScratch/TryCompile-0YCKFe -resource-dir /usr/lib/llvm-19/lib/clang/19 -dependency-file CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -U _FORTIFY_SOURCE -D __AFL_COMPILER=1 -D FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION=1 -D "__AFL_COVERAGE()=int __afl_selective_coverage = 1]
+        ignore line: [extern \\"C\\" void __afl_coverage_discard()]
+        ignore line: [extern \\"C\\" void __afl_coverage_skip()]
+        ignore line: [extern \\"C\\" void __afl_coverage_on()]
+        ignore line: [extern \\"C\\" void __afl_coverage_off()]
+        ignore line: [" -D "__AFL_COVERAGE_START_OFF()=int __afl_selective_coverage_start_off = 1]
+        ignore line: [" -D __AFL_COVERAGE_ON()=__afl_coverage_on() -D __AFL_COVERAGE_OFF()=__afl_coverage_off() -D __AFL_COVERAGE_DISCARD()=__afl_coverage_discard() -D __AFL_COVERAGE_SKIP()=__afl_coverage_skip() -D __AFL_HAVE_MANUAL_CONTROL=1 -D "__AFL_FUZZ_INIT()=int __afl_sharedmem_fuzzing = 1]
+        ignore line: [extern __attribute__((visibility(\\"default\\"))) unsigned int *__afl_fuzz_len]
+        ignore line: [extern __attribute__((visibility(\\"default\\"))) unsigned char *__afl_fuzz_ptr]
+        ignore line: [unsigned char __afl_fuzz_alt[1048576]]
+        ignore line: [unsigned char *__afl_fuzz_alt_ptr = __afl_fuzz_alt]
+        ignore line: [" -D "__AFL_FUZZ_TESTCASE_BUF=(__afl_fuzz_ptr ? __afl_fuzz_ptr : __afl_fuzz_alt_ptr)" -D "__AFL_FUZZ_TESTCASE_LEN=(__afl_fuzz_ptr ? *__afl_fuzz_len : (*__afl_fuzz_len = read(0  __afl_fuzz_alt_ptr  1048576)) == 0xffffffff ? 0 : *__afl_fuzz_len)" -D "__AFL_LOOP(_A)=({ static volatile const char *_B __attribute__((used unused))]
+        ignore line: [  _B = (const char*)\\"##SIG_AFL_PERSISTENT##\\"]
+        ignore line: [ extern __attribute__((visibility(\\"default\\"))) int __afl_connected]
+        ignore line: [__attribute__((visibility(\\"default\\"))) int _L(unsigned int) __asm__(\\"__afl_persistent_loop\\")]
+        ignore line: [ _L(__afl_connected ? _A : 1)]
+        ignore line: [ })" -D "__AFL_INIT()=do { static volatile const char *_A __attribute__((used unused))]
+        ignore line: [  _A = (const char*)\\"##SIG_AFL_DEFER_FORKSRV##\\"]
+        ignore line: [ __attribute__((visibility(\\"default\\"))) void _I(void) __asm__(\\"__afl_manual_init\\")]
+        ignore line: [ _I()]
+        ignore line: [ } while (0)" -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/backward -internal-isystem /usr/lib/llvm-19/lib/clang/19/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O3 -Wno-unused-command-line-argument -fdeprecated-macro -ferror-limit 19 -fsanitize=address -fsanitize-system-ignorelist=/usr/lib/llvm-19/lib/clang/19/share/asan_ignorelist.txt -fno-sanitize-memory-param-retval -fsanitize-address-use-after-scope -fsanitize-address-globals-dead-stripping -fno-assume-sane-operator-new -funroll-loops -fno-builtin-strcmp -fno-builtin-strncmp -fno-builtin-strcasecmp -fno-builtin-strncasecmp -fno-builtin-memcmp -fno-builtin-memmem -fno-builtin-bcmp -fno-builtin-strstr -fno-builtin-strcasestr -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 19.1.1 based upon LLVM 19.1.1 default target x86_64-pc-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/backward]
+        ignore line: [ /usr/lib/llvm-19/lib/clang/19/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking CXX executable cmTC_6d95c]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6d95c.dir/link.txt --verbose=1]
+        ignore line: [/usr/local/bin/afl-clang-lto++ -fsanitize=address -g -fno-omit-frame-pointer   -v -Wl -v CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_6d95c]
+        ignore line: [Ubuntu clang version 19.1.1 (1ubuntu1)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /usr/lib/llvm-19/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14]
+        ignore line: [Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        link line: [ "/usr/lib/llvm-19/bin/ld.lld" -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_6d95c /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -plugin-opt=mcpu=x86-64 -plugin-opt=O3 --whole-archive /usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_static-x86_64.a --no-whole-archive --whole-archive /usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a --no-whole-archive --dynamic-list=/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a.syms --whole-archive /usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_cxx-x86_64.a --no-whole-archive --dynamic-list=/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_cxx-x86_64.a.syms --load-pass-plugin=/usr/local/bin/../lib/afl/SanitizerCoverageLTO.so --allow-multiple-definition -v CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o /usr/local/bin/../lib/afl/afl-compiler-rt.o /usr/local/bin/../lib/afl/afl-llvm-rt-lto.o --dynamic-list=/usr/local/bin/../lib/afl/dynamic_list.txt -lstdc++ -lm --no-as-needed -lpthread -lrt -lm -ldl -lresolv -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/llvm-19/bin/ld.lld] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_6d95c] ==> ignore
+          arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
+          arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/14] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/14]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [-plugin-opt=mcpu=x86-64] ==> ignore
+          arg [-plugin-opt=O3] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_static-x86_64.a] ==> lib [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_static-x86_64.a]
+          arg [--no-whole-archive] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a] ==> lib [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a]
+          arg [--no-whole-archive] ==> ignore
+          arg [--dynamic-list=/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a.syms] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_cxx-x86_64.a] ==> lib [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_cxx-x86_64.a]
+          arg [--no-whole-archive] ==> ignore
+          arg [--dynamic-list=/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_cxx-x86_64.a.syms] ==> ignore
+          arg [--load-pass-plugin=/usr/local/bin/../lib/afl/SanitizerCoverageLTO.so] ==> ignore
+          arg [--allow-multiple-definition] ==> ignore
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_6d95c.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [/usr/local/bin/../lib/afl/afl-compiler-rt.o] ==> obj [/usr/local/bin/../lib/afl/afl-compiler-rt.o]
+          arg [/usr/local/bin/../lib/afl/afl-llvm-rt-lto.o] ==> obj [/usr/local/bin/../lib/afl/afl-llvm-rt-lto.o]
+          arg [--dynamic-list=/usr/local/bin/../lib/afl/dynamic_list.txt] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [--no-as-needed] ==> ignore
+          arg [-lpthread] ==> lib [pthread]
+          arg [-lrt] ==> lib [rt]
+          arg [-lm] ==> lib [m]
+          arg [-ldl] ==> lib [dl]
+          arg [-lresolv] ==> lib [resolv]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o]
+          arg [/lib/x86_64-linux-gnu/crtn.o] ==> obj [/lib/x86_64-linux-gnu/crtn.o]
+        linker tool for 'CXX': /usr/lib/llvm-19/bin/ld.lld
+        remove lib [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_static-x86_64.a]
+        remove lib [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan-x86_64.a]
+        remove lib [/usr/lib/llvm-19/lib/clang/19/lib/linux/libclang_rt.asan_cxx-x86_64.a]
+        collapse obj [/usr/local/bin/../lib/afl/afl-compiler-rt.o] ==> [/usr/local/lib/afl/afl-compiler-rt.o]
+        collapse obj [/usr/local/bin/../lib/afl/afl-llvm-rt-lto.o] ==> [/usr/local/lib/afl/afl-llvm-rt-lto.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/14] ==> [/usr/lib/gcc/x86_64-linux-gnu/14]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [stdc++;m;pthread;rt;m;dl;resolv;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/lib/x86_64-linux-gnu/Scrt1.o;/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o;/usr/local/lib/afl/afl-compiler-rt.o;/usr/local/lib/afl/afl-llvm-rt-lto.o;/usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o;/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/14;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/lib;/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:19 (project)"
+    message: |
+      Running the CXX compiler's linker: "/usr/lib/llvm-19/bin/ld.lld" "-v"
+      Ubuntu LLD 19.1.1 (compatible with GNU linkers)
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/lib/cmake/JUCE-8.0.7/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/lib/cmake/JUCE-8.0.7/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/lib/cmake/JUCE-8.0.7/JUCEModuleSupport.cmake:57 (include)"
+      - "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/lib/cmake/JUCE-8.0.7/JUCEConfig.cmake:61 (include)"
+      - "CMakeLists.txt:26 (find_package)"
+    directories:
+      source: "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/check_atomic_dir_D8t8lL01zCAd0XPZ/CMakeFiles/CMakeTmp"
+      binary: "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/check_atomic_dir_D8t8lL01zCAd0XPZ/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: "-fsanitize=address -g -fno-omit-frame-pointer"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/check_atomic_dir_D8t8lL01zCAd0XPZ/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_d8653/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_d8653.dir/build.make CMakeFiles/cmTC_d8653.dir/build
+        gmake[1]: Entering directory '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/check_atomic_dir_D8t8lL01zCAd0XPZ/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_d8653.dir/check_atomic_3MGfVu23VdbcNRGl.cpp.o
+        /usr/local/bin/afl-clang-lto++   -fsanitize=address -g -fno-omit-frame-pointer  -std=c++17 -MD -MT CMakeFiles/cmTC_d8653.dir/check_atomic_3MGfVu23VdbcNRGl.cpp.o -MF CMakeFiles/cmTC_d8653.dir/check_atomic_3MGfVu23VdbcNRGl.cpp.o.d -o CMakeFiles/cmTC_d8653.dir/check_atomic_3MGfVu23VdbcNRGl.cpp.o -c /home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/check_atomic_3MGfVu23VdbcNRGl.cpp
+        Linking CXX executable cmTC_d8653
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8653.dir/link.txt --verbose=1
+        /usr/local/bin/afl-clang-lto++ -fsanitize=address -g -fno-omit-frame-pointer  CMakeFiles/cmTC_d8653.dir/check_atomic_3MGfVu23VdbcNRGl.cpp.o -o cmTC_d8653
+        gmake[1]: Leaving directory '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/check_atomic_dir_D8t8lL01zCAd0XPZ/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/lib/cmake/JUCE-8.0.7/JUCEModuleSupport.cmake:63 (try_compile)"
+      - "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/lib/cmake/JUCE-8.0.7/JUCEModuleSupport.cmake:75 (_juce_find_target_architecture)"
+      - "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/lib/cmake/JUCE-8.0.7/JUCEConfig.cmake:61 (include)"
+      - "CMakeLists.txt:26 (find_package)"
+    directories:
+      source: "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeTmp"
+      binary: "/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: "-fsanitize=address -g -fno-omit-frame-pointer"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f945a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f945a.dir/build.make CMakeFiles/cmTC_f945a.dir/build
+        gmake[1]: Entering directory '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_f945a.dir/juce_runtime_arch_detection.cpp.o
+        /usr/local/bin/afl-clang-lto++   -fsanitize=address -g -fno-omit-frame-pointer  -MD -MT CMakeFiles/cmTC_f945a.dir/juce_runtime_arch_detection.cpp.o -MF CMakeFiles/cmTC_f945a.dir/juce_runtime_arch_detection.cpp.o.d -o CMakeFiles/cmTC_f945a.dir/juce_runtime_arch_detection.cpp.o -c /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/lib/cmake/JUCE-8.0.7/juce_runtime_arch_detection.cpp
+        /home/fuzzy-anarchist/Desktop/JUCEFUZZ/juce/install/lib/cmake/JUCE-8.0.7/juce_runtime_arch_detection.cpp:56:4: error: JUCE_ARCH x86_64
+           56 |   #error JUCE_ARCH x86_64
+              |    ^
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_f945a.dir/build.make:79: CMakeFiles/cmTC_f945a.dir/juce_runtime_arch_detection.cpp.o] Error 1
+        gmake[1]: Leaving directory '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/mp3-harness/cmake-build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_f945a/fast] Error 2
+        
+      exitCode: 2
+...
