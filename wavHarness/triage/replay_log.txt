@@ -1,0 +1,212 @@
+Replaying: ./../out/default/unique/id:000000,sig:06,src:000000,time:2853,execs:3055,op:arith16,pos:22,val:-3
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:72
+=================================================================
+==41472==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x603000000e18 at pc 0x55b4b2ab2adc bp 0x7ffd1bd68fe0 sp 0x7ffd1bd68fd8
+WRITE of size 8 at 0x603000000e18 thread T0
+    #0 0x55b4b2ab2adb in juce::AudioBuffer<float>::allocateData() /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:1179:31
+    #1 0x55b4b2ab0982 in juce::AudioBuffer<float>::AudioBuffer(int, int) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:73:9
+    #2 0x55b4b2aaf9c4 in readWAV(unsigned char const*, unsigned long) /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:24:38
+    #3 0x55b4b2ab026b in main /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:52:5
+    #4 0x7f92548acd8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #5 0x7f92548ace3f in __libc_start_main csu/../csu/libc-start.c:392:3
+    #6 0x55b4b29ef394 in _start (/home/guirk/fuzzing/trial1Triage/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0xf4394) (BuildId: a0439187f5e9070d566851e5ee7e7a0c0e3bf6bc)
+
+0x603000000e18 is located 8 bytes to the left of 32-byte region [0x603000000e20,0x603000000e40)
+allocated by thread T0 here:
+    #0 0x55b4b2a721de in malloc (/home/guirk/fuzzing/trial1Triage/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0x1771de) (BuildId: a0439187f5e9070d566851e5ee7e7a0c0e3bf6bc)
+    #1 0x55b4b2ab2f29 in juce::HeapBlock<char, true>::mallocWrapper(unsigned long)::'lambda'()::operator()() const /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_core/memory/juce_HeapBlock.h:354:47
+    #2 0x55b4b2ab2ed0 in char* juce::HeapBlock<char, true>::wrapper<juce::HeapBlock<char, true>::mallocWrapper(unsigned long)::'lambda'()>(unsigned long, juce::HeapBlock<char, true>::mallocWrapper(unsigned long)::'lambda'()&&) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_core/memory/juce_HeapBlock.h:341:51
+    #3 0x55b4b2ab2e37 in juce::HeapBlock<char, true>::mallocWrapper(unsigned long) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_core/memory/juce_HeapBlock.h:354:16
+    #4 0x55b4b2ab2c3f in void juce::HeapBlock<char, true>::malloc<unsigned long>(unsigned long, unsigned long) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_core/memory/juce_HeapBlock.h:264:16
+    #5 0x55b4b2ab284d in juce::AudioBuffer<float>::allocateData() /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:1169:23
+    #6 0x55b4b2ab0982 in juce::AudioBuffer<float>::AudioBuffer(int, int) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:73:9
+    #7 0x55b4b2aaf9c4 in readWAV(unsigned char const*, unsigned long) /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:24:38
+    #8 0x55b4b2ab026b in main /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:52:5
+    #9 0x7f92548acd8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:1179:31 in juce::AudioBuffer<float>::allocateData()
+Shadow bytes around the buggy address:
+  0x0c067fff8170: fd fd fd fd fa fa fd fd fd fd fa fa fd fd fd fd
+  0x0c067fff8180: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd
+  0x0c067fff8190: fd fd fa fa fd fd fd fd fa fa fd fd fd fd fa fa
+  0x0c067fff81a0: fd fd fd fd fa fa fd fd fd fd fa fa fd fd fd fd
+  0x0c067fff81b0: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd
+=>0x0c067fff81c0: fd fd fa[fa]00 00 00 00 fa fa fa fa fa fa fa fa
+  0x0c067fff81d0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff81e0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff81f0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8210: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==41472==ABORTING
+
+Replaying: ./../out/default/unique/id:000017,sig:06,src:000284,time:747621,execs:6213665,op:havoc,rep:2
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioSampleBuffer.h:72
+JUCE Assertion failure in juce_AudioSampleBuffer.h:1159
+=================================================================
+==41475==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x629000004228 at pc 0x563a6e79999d bp 0x7fff03e0d040 sp 0x7fff03e0d038
+WRITE of size 8 at 0x629000004228 thread T0
+    #0 0x563a6e79999c in juce::AudioBuffer<float>::allocateData() /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:1175:25
+    #1 0x563a6e797982 in juce::AudioBuffer<float>::AudioBuffer(int, int) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:73:9
+    #2 0x563a6e7969c4 in readWAV(unsigned char const*, unsigned long) /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:24:38
+    #3 0x563a6e79726b in main /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:52:5
+    #4 0x7f10f6d12d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #5 0x7f10f6d12e3f in __libc_start_main csu/../csu/libc-start.c:392:3
+    #6 0x563a6e6d6394 in _start (/home/guirk/fuzzing/trial1Triage/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0xf4394) (BuildId: a0439187f5e9070d566851e5ee7e7a0c0e3bf6bc)
+
+0x62900000422c is located 0 bytes to the right of 16428-byte region [0x629000000200,0x62900000422c)
+allocated by thread T0 here:
+    #0 0x563a6e7591de in malloc (/home/guirk/fuzzing/trial1Triage/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0x1771de) (BuildId: a0439187f5e9070d566851e5ee7e7a0c0e3bf6bc)
+    #1 0x563a6e799f29 in juce::HeapBlock<char, true>::mallocWrapper(unsigned long)::'lambda'()::operator()() const /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_core/memory/juce_HeapBlock.h:354:47
+    #2 0x563a6e799ed0 in char* juce::HeapBlock<char, true>::wrapper<juce::HeapBlock<char, true>::mallocWrapper(unsigned long)::'lambda'()>(unsigned long, juce::HeapBlock<char, true>::mallocWrapper(unsigned long)::'lambda'()&&) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_core/memory/juce_HeapBlock.h:341:51
+    #3 0x563a6e799e37 in juce::HeapBlock<char, true>::mallocWrapper(unsigned long) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_core/memory/juce_HeapBlock.h:354:16
+    #4 0x563a6e799c3f in void juce::HeapBlock<char, true>::malloc<unsigned long>(unsigned long, unsigned long) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_core/memory/juce_HeapBlock.h:264:16
+    #5 0x563a6e79984d in juce::AudioBuffer<float>::allocateData() /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:1169:23
+    #6 0x563a6e797982 in juce::AudioBuffer<float>::AudioBuffer(int, int) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:73:9
+    #7 0x563a6e7969c4 in readWAV(unsigned char const*, unsigned long) /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:24:38
+    #8 0x563a6e79726b in main /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:52:5
+    #9 0x7f10f6d12d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:1175:25 in juce::AudioBuffer<float>::allocateData()
+Shadow bytes around the buggy address:
+  0x0c527fff87f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c527fff8800: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c527fff8810: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c527fff8820: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c527fff8830: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x0c527fff8840: 00 00 00 00 00[04]fa fa fa fa fa fa fa fa fa fa
+  0x0c527fff8850: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c527fff8860: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c527fff8870: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c527fff8880: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c527fff8890: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==41475==ABORTING
+
+Replaying: ./../out/default/unique/id:000021,sig:08,src:000485,time:1243651,execs:8400014,op:havoc,rep:3
+JUCE v8.0.7
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==41477==ERROR: AddressSanitizer: FPE on unknown address 0x55ae7dd9223e (pc 0x55ae7dd9223e bp 0x7fff2e4a84f0 sp 0x7fff2e4a6ba0 T0)
+    #0 0x55ae7dd9223e in juce::WavAudioFormatReader::WavAudioFormatReader(juce::InputStream*) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_formats/codecs/juce_WavAudioFormat.cpp:1283:53
+    #1 0x55ae7dd1a441 in juce::WavAudioFormat::createReaderFor(juce::InputStream*, bool) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_formats/codecs/juce_WavAudioFormat.cpp:1987:50
+    #2 0x55ae7dc1bd04 in juce::AudioFormatManager::createReaderFor(std::unique_ptr<juce::InputStream, std::default_delete<juce::InputStream> >) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_formats/format/juce_AudioFormatManager.cpp:156:31
+    #3 0x55ae7d8b58bf in readWAV(unsigned char const*, unsigned long) /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:21:27
+    #4 0x55ae7d8b626b in main /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:52:5
+    #5 0x7f8b60198d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #6 0x7f8b60198e3f in __libc_start_main csu/../csu/libc-start.c:392:3
+    #7 0x55ae7d7f5394 in _start (/home/guirk/fuzzing/trial1Triage/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0xf4394) (BuildId: a0439187f5e9070d566851e5ee7e7a0c0e3bf6bc)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: FPE /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_formats/codecs/juce_WavAudioFormat.cpp:1283:53 in juce::WavAudioFormatReader::WavAudioFormatReader(juce::InputStream*)
+==41477==ABORTING
+
+Replaying: ./../out/default/unique/id:000022,sig:11,src:000525,time:1296247,execs:8648794,op:havoc,rep:3
+JUCE v8.0.7
+JUCE Assertion failure in juce_AudioChannelSet.cpp:542
+JUCE Assertion failure in juce_AudioChannelSet.cpp:542
+JUCE Assertion failure in juce_AudioChannelSet.cpp:542
+JUCE Assertion failure in juce_AudioChannelSet.cpp:542
+JUCE Assertion failure in juce_AudioChannelSet.cpp:542
+JUCE Assertion failure in juce_AudioChannelSet.cpp:542
+JUCE Assertion failure in juce_AudioChannelSet.cpp:542
+JUCE Assertion failure in juce_AudioSampleBuffer.h:72
+=================================================================
+==41480==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x602000000a60 at pc 0x557a6d2caadc bp 0x7fff8eeb6300 sp 0x7fff8eeb62f8
+WRITE of size 8 at 0x602000000a60 thread T0
+    #0 0x557a6d2caadb in juce::AudioBuffer<float>::allocateData() /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:1179:31
+    #1 0x557a6d2c8982 in juce::AudioBuffer<float>::AudioBuffer(int, int) /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:73:9
+    #2 0x557a6d2c79c4 in readWAV(unsigned char const*, unsigned long) /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:24:38
+    #3 0x557a6d2c826b in main /home/guirk/fuzzing/trial1Triage/wavTriage.cpp:52:5
+    #4 0x7fdc77607d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #5 0x7fdc77607e3f in __libc_start_main csu/../csu/libc-start.c:392:3
+    #6 0x557a6d207394 in _start (/home/guirk/fuzzing/trial1Triage/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0xf4394) (BuildId: a0439187f5e9070d566851e5ee7e7a0c0e3bf6bc)
+
+0x602000000a60 is located 0 bytes to the right of 16-byte region [0x602000000a50,0x602000000a60)
+allocated by thread T0 here:
+    #0 0x557a6d2c4fad in operator new(unsigned long) (/home/guirk/fuzzing/trial1Triage/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0x1b1fad) (BuildId: a0439187f5e9070d566851e5ee7e7a0c0e3bf6bc)
+    #1 0x557a6d80b8e9 in __gnu_cxx::new_allocator<std::__detail::_Hash_node<juce::String, false> >::allocate(unsigned long, void const*) /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/ext/new_allocator.h:127:27
+    #2 0x557a6d80b7f0 in std::allocator_traits<std::allocator<std::__detail::_Hash_node<juce::String, false> > >::allocate(std::allocator<std::__detail::_Hash_node<juce::String, false> >&, unsigned long) /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/alloc_traits.h:464:20
+    #3 0x557a6d80b6e9 in std::__detail::_Hash_node<juce::String, false>* std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<juce::String, false> > >::_M_allocate_node<juce::String const&>(juce::String const&) /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/hashtable_policy.h:1873:16
+    #4 0x557a6d80b001 in std::__detail::_Hash_node<juce::String, false>* std::__detail::_AllocNode<std::allocator<std::__detail::_Hash_node<juce::String, false> > >::operator()<juce::String const&>(juce::String const&) const /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/hashtable_policy.h:168:16
+    #5 0x557a6d80ab32 in std::pair<std::__detail::_Node_iterator<juce::String, true, false>, bool> std::_Hashtable<juce::String, juce::String, std::allocator<juce::String>, std::__detail::_Identity, std::equal_to<juce::String>, std::hash<juce::String>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true> >::_M_insert<juce::String const&, std::__detail::_AllocNode<std::allocator<std::__detail::_Hash_node<juce::String, false> > > >(juce::String const&, std::__detail::_AllocNode<std::allocator<std::__detail::_Hash_node<juce::String, false> > > const&, std::integral_constant<bool, true>) /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/hashtable.h:2108:23
+    #6 0x557a6d809ee7 in std::__detail::_Insert_base<juce::String, juce::String, std::allocator<juce::String>, std::__detail::_Identity, std::equal_to<juce::String>, std::hash<juce::String>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true> >::insert(juce::String const&) /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/hashtable_policy.h:844:13
+    #7 0x557a6d809ae3 in std::_Hashtable<juce::String, juce::String, std::allocator<juce::String>, std::__detail::_Identity, std::equal_to<juce::String>, std::hash<juce::String>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true> >::_Hashtable<juce::String const*>(juce::String const*, juce::String const*, unsigned long, std::hash<juce::String> const&, std::equal_to<juce::String> const&, std::allocator<juce::String> const&, std::integral_constant<bool, true>) /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/hashtable.h:1148:10
+    #8 0x557a6d8098d5 in std::_Hashtable<juce::String, juce::String, std::allocator<juce::String>, std::__detail::_Identity, std::equal_to<juce::String>, std::hash<juce::String>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true> >::_Hashtable(std::initializer_list<juce::String>, unsigned long, std::hash<juce::String> const&, std::equal_to<juce::String> const&, std::allocator<juce::String> const&) /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/hashtable.h:574:9
+    #9 0x557a6d7a1e8e in std::unordered_set<juce::String, std::hash<juce::String>, std::equal_to<juce::String>, std::allocator<juce::String> >::unordered_set(std::initializer_list<juce::String>, unsigned long, std::hash<juce::String> const&, std::equal_to<juce::String> const&, std::allocator<juce::String> const&) /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/unordered_set.h:226:9
+    #10 0x557a6d2070d7 in __cxx_global_var_init.394 /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_formats/codecs/juce_WavAudioFormat.cpp:963:49
+    #11 0x557a6d20735e in _GLOBAL__sub_I_juce_audio_formats.cpp /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_formats/juce_audio_formats.cpp
+    #12 0x7fdc77607eba in call_init csu/../csu/libc-start.c:145:3
+    #13 0x7fdc77607eba in __libc_start_main csu/../csu/libc-start.c:379:5
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/guirk/fuzzing/trial1Triage/JUCE/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:1179:31 in juce::AudioBuffer<float>::allocateData()
+Shadow bytes around the buggy address:
+  0x0c047fff80f0: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00
+  0x0c047fff8100: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00
+  0x0c047fff8110: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00
+  0x0c047fff8120: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00
+  0x0c047fff8130: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00
+=>0x0c047fff8140: fa fa 00 00 fa fa 00 00 fa fa 00 00[fa]fa 00 00
+  0x0c047fff8150: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff8160: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff8170: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff8180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff8190: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==41480==ABORTING

@@ -1,0 +1,169 @@
+Replaying: ./../out/default/unique/id:000000,sig:06,src:000000,time:392,execs:2565,op:havoc,rep:3
+JUCE v8.0.7
+JUCE Assertion failure in juce_String.cpp:2162
+=================================================================
+==40191==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000083b at pc 0x55838e35ea63 bp 0x7ffc9a8bb530 sp 0x7ffc9a8bb528
+WRITE of size 1 at 0x60300000083b thread T0
+    #0 0x55838e35ea62 in juce::CharPointer_UTF8::writeAll(juce::CharPointer_UTF8) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_CharPointer_UTF8.h:376:23
+    #1 0x55838e3591e7 in juce::CharPointer_UTF8 juce::StringHolderUtils::createFromCharPointer<juce::CharPointer_UTF8>(juce::CharPointer_UTF8) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:97:32
+    #2 0x55838e272f0b in juce::String::String(juce::CharPointer_UTF8) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:354:54
+    #3 0x55838e24344e in juce::String::fromUTF8(char const*, int) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:2163:16
+    #4 0x55838e1ff296 in main /home/guirk/fuzzing/JUCETXT/juce_harness.cpp:21:32
+    #5 0x7fb7342f1d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #6 0x7fb7342f1e3f in __libc_start_main csu/../csu/libc-start.c:392:3
+    #7 0x55838e13eeb4 in _start (/home/guirk/fuzzing/JUCETXT/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0x5feb4) (BuildId: 4310730ea1a8165958be8d752be4c19ab64932ec)
+
+0x60300000083b is located 0 bytes to the right of 27-byte region [0x603000000820,0x60300000083b)
+allocated by thread T0 here:
+    #0 0x55838e1fcbdd in operator new[](unsigned long) (/home/guirk/fuzzing/JUCETXT/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0x11dbdd) (BuildId: 4310730ea1a8165958be8d752be4c19ab64932ec)
+    #1 0x55838e357ca2 in juce::StringHolderUtils::createUninitialisedBytes(unsigned long) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:82:23
+    #2 0x55838e359161 in juce::CharPointer_UTF8 juce::StringHolderUtils::createFromCharPointer<juce::CharPointer_UTF8>(juce::CharPointer_UTF8) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:96:21
+    #3 0x55838e272f0b in juce::String::String(juce::CharPointer_UTF8) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:354:54
+    #4 0x55838e24344e in juce::String::fromUTF8(char const*, int) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:2163:16
+    #5 0x55838e1ff296 in main /home/guirk/fuzzing/JUCETXT/juce_harness.cpp:21:32
+    #6 0x7fb7342f1d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_CharPointer_UTF8.h:376:23 in juce::CharPointer_UTF8::writeAll(juce::CharPointer_UTF8)
+Shadow bytes around the buggy address:
+  0x0c067fff80b0: fd fd fd fd fa fa fd fd fd fd fa fa fd fd fd fd
+  0x0c067fff80c0: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd
+  0x0c067fff80d0: fd fd fa fa fd fd fd fd fa fa fd fd fd fd fa fa
+  0x0c067fff80e0: fd fd fd fd fa fa fd fd fd fd fa fa fd fd fd fd
+  0x0c067fff80f0: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd
+=>0x0c067fff8100: fd fd fa fa 00 00 00[03]fa fa fa fa fa fa fa fa
+  0x0c067fff8110: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8120: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8130: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8140: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8150: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==40191==ABORTING
+
+Replaying: ./../out/default/unique/id:000007,sig:06,src:000051,time:8416,execs:55349,op:havoc,rep:4
+JUCE v8.0.7
+=================================================================
+==40193==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000005a at pc 0x55a85a6008e3 bp 0x7ffe6fc5cc50 sp 0x7ffe6fc5cc48
+READ of size 1 at 0x60300000005a thread T0
+    #0 0x55a85a6008e2 in juce::CharPointer_UTF8::isValidString(char const*, int) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_CharPointer_UTF8.h:510:46
+    #1 0x55a85a4e33c8 in juce::String::fromUTF8(char const*, int) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:2162:9
+    #2 0x55a85a49f296 in main /home/guirk/fuzzing/JUCETXT/juce_harness.cpp:21:32
+    #3 0x7fb65af36d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #4 0x7fb65af36e3f in __libc_start_main csu/../csu/libc-start.c:392:3
+    #5 0x55a85a3deeb4 in _start (/home/guirk/fuzzing/JUCETXT/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0x5feb4) (BuildId: 4310730ea1a8165958be8d752be4c19ab64932ec)
+
+0x60300000005a is located 0 bytes to the right of 26-byte region [0x603000000040,0x60300000005a)
+allocated by thread T0 here:
+    #0 0x55a85a49cbdd in operator new[](unsigned long) (/home/guirk/fuzzing/JUCETXT/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0x11dbdd) (BuildId: 4310730ea1a8165958be8d752be4c19ab64932ec)
+    #1 0x55a85a49f247 in main /home/guirk/fuzzing/JUCETXT/juce_harness.cpp:15:19
+    #2 0x7fb65af36d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_CharPointer_UTF8.h:510:46 in juce::CharPointer_UTF8::isValidString(char const*, int)
+Shadow bytes around the buggy address:
+  0x0c067fff7fb0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c067fff7fc0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c067fff7fd0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c067fff7fe0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c067fff7ff0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x0c067fff8000: fa fa 00 00 00 fa fa fa 00 00 00[02]fa fa fa fa
+  0x0c067fff8010: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8020: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8030: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8040: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8050: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==40193==ABORTING
+
+Replaying: ./../out/default/unique/id:000039,sig:06,src:000122,time:1852928,execs:7196463,op:havoc,rep:35
+JUCE v8.0.7
+=================================================================
+==40196==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x6160000005c3 at pc 0x55f017b45a63 bp 0x7ffdf0072d30 sp 0x7ffdf0072d28
+WRITE of size 1 at 0x6160000005c3 thread T0
+    #0 0x55f017b45a62 in juce::CharPointer_UTF8::writeAll(juce::CharPointer_UTF8) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_CharPointer_UTF8.h:376:23
+    #1 0x55f017b401e7 in juce::CharPointer_UTF8 juce::StringHolderUtils::createFromCharPointer<juce::CharPointer_UTF8>(juce::CharPointer_UTF8) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:97:32
+    #2 0x55f017a59f0b in juce::String::String(juce::CharPointer_UTF8) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:354:54
+    #3 0x55f017a2a44e in juce::String::fromUTF8(char const*, int) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:2163:16
+    #4 0x55f0179e6296 in main /home/guirk/fuzzing/JUCETXT/juce_harness.cpp:21:32
+    #5 0x7f55e8a8ad8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #6 0x7f55e8a8ae3f in __libc_start_main csu/../csu/libc-start.c:392:3
+    #7 0x55f017925eb4 in _start (/home/guirk/fuzzing/JUCETXT/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0x5feb4) (BuildId: 4310730ea1a8165958be8d752be4c19ab64932ec)
+
+0x6160000005c3 is located 0 bytes to the right of 579-byte region [0x616000000380,0x6160000005c3)
+allocated by thread T0 here:
+    #0 0x55f0179e3bdd in operator new[](unsigned long) (/home/guirk/fuzzing/JUCETXT/build-asan/JuceHarness_artefacts/Debug/JuceHarness+0x11dbdd) (BuildId: 4310730ea1a8165958be8d752be4c19ab64932ec)
+    #1 0x55f017b3eca2 in juce::StringHolderUtils::createUninitialisedBytes(unsigned long) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:82:23
+    #2 0x55f017b40161 in juce::CharPointer_UTF8 juce::StringHolderUtils::createFromCharPointer<juce::CharPointer_UTF8>(juce::CharPointer_UTF8) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:96:21
+    #3 0x55f017a59f0b in juce::String::String(juce::CharPointer_UTF8) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:354:54
+    #4 0x55f017a2a44e in juce::String::fromUTF8(char const*, int) /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_String.cpp:2163:16
+    #5 0x55f0179e6296 in main /home/guirk/fuzzing/JUCETXT/juce_harness.cpp:21:32
+    #6 0x7f55e8a8ad8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/guirk/fuzzing/JUCETXT/JUCE/modules/juce_core/text/juce_CharPointer_UTF8.h:376:23 in juce::CharPointer_UTF8::writeAll(juce::CharPointer_UTF8)
+Shadow bytes around the buggy address:
+  0x0c2c7fff8060: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2c7fff8070: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c2c7fff8080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c2c7fff8090: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c2c7fff80a0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x0c2c7fff80b0: 00 00 00 00 00 00 00 00[03]fa fa fa fa fa fa fa
+  0x0c2c7fff80c0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2c7fff80d0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2c7fff80e0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2c7fff80f0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2c7fff8100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==40196==ABORTING
+
