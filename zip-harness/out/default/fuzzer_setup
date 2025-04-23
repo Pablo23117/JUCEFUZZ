@@ -1,0 +1,6 @@
+# environment variables:
+AFL_CUSTOM_INFO_PROGRAM=/home/fuzzy-anarchist/Desktop/JUCEFUZZ/zip-harness/cmake-build/JuceZipHarness_artefacts/JuceZipHarness
+AFL_CUSTOM_INFO_PROGRAM_ARGV=@@
+AFL_CUSTOM_INFO_OUT=/home/fuzzy-anarchist/Desktop/JUCEFUZZ/zip-harness/out//default
+# command line:
+'afl-fuzz' '-i' '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/zip-harness/in/' '-o' '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/zip-harness/out/' '--' '/home/fuzzy-anarchist/Desktop/JUCEFUZZ/zip-harness/cmake-build/JuceZipHarness_artefacts/JuceZipHarness' '@@'

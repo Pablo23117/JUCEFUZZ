@@ -20,9 +20,6 @@ target_compile_definitions(JuceZipHarness
 target_link_libraries(JuceZipHarness
     PRIVATE
         juce::juce_core
-        juce::juce_audio_basics
-        juce::juce_audio_formats
-        mp3lame
     PUBLIC
         juce::juce_recommended_config_flags
         juce::juce_recommended_warning_flags)

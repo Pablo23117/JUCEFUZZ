@@ -8,7 +8,7 @@
   __AFL_FUZZ_INIT();
 #endif
 
-int readMP3(const uint8_t* data, size_t size) 
+int zip_harness(const uint8_t* data, size_t size) 
 {
     try 
     {
@@ -43,31 +43,31 @@ int main(int argc, char* argv[])
         __AFL_INIT();
     #endif
 
-    unsigned char *buf = __AFL_FUZZ_TESTCASE_BUF;
+    const char* asan_enabled = std::getenv("AFL_USE_ASAN");
+    if (asan_enabled && std::string(asan_enabled) == "1") 
+    {
+        unsigned char *buf = __AFL_FUZZ_TESTCASE_BUF;
+        int len = __AFL_FUZZ_TESTCASE_LEN;
+        zip_harness(buf, len);
+        delete buf;
+    } else 
+    {
+        unsigned char *buf = __AFL_FUZZ_TESTCASE_BUF;
+        while (__AFL_LOOP(5000)) 
+        {
+            int len = __AFL_FUZZ_TESTCASE_LEN;
+            zip_harness(buf, len);
+            buf = __AFL_FUZZ_TESTCASE_BUF;
+        }
 
-    // const char* asan_enabled = std::getenv("AFL_USE_ASAN");
-    // if (asan_enabled && std::string(asan_enabled) == "1") 
+        delete buf;
+    }
+
+    // while (__AFL_LOOP(5000)) 
     // {
     //     int len = __AFL_FUZZ_TESTCASE_LEN;
-    //     readMP3(buf, len);
-    //     delete buf;
-    // } else 
-    // {
-    //     while (__AFL_LOOP(5000)) 
-    //     {
-    //         int len = __AFL_FUZZ_TESTCASE_LEN;
-    //         readMP3(buf, len);
-    //         buf = __AFL_FUZZ_TESTCASE_BUF;
-    //     }
-
-    //     delete buf;
+    //     zip_harness(buf, len);
+    //     buf = __AFL_FUZZ_TESTCASE_BUF;
     // }
-
-    while (__AFL_LOOP(5000)) 
-    {
-        int len = __AFL_FUZZ_TESTCASE_LEN;
-        readMP3(buf, len);
-        buf = __AFL_FUZZ_TESTCASE_BUF;
-    }
     return 0;
 }
